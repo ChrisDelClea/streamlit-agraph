@@ -9,7 +9,7 @@ pip install streamlit-agraph
 import agraph
 import streamlit
 
-nodes = ["Harry","Sally","Peter","Chris"]`
+nodes = ["Harry","Sally","Peter","Chris"]
 edges = [("Harry","Sally"),("Peter","Chris")]
 
 return_value = agraph(nodes=nodes,
@@ -21,3 +21,4 @@ return_value = agraph(nodes=nodes,
 ```
 
 
+![](https://github.com/ChrisChross/streamlit-agraph/imgs/example.png "Simple Example")
