@@ -21,4 +21,5 @@ return_value = agraph(nodes=nodes,
 ```
 
 
-![](https://github.com/ChrisChross/streamlit-agraph/imgs/example.png "Simple Example")
+![example](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png "Simple Example")
+
