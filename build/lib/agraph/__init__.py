@@ -62,12 +62,13 @@ if not _RELEASE:
     import streamlit as st
 
     st.subheader("Component with constant args")
+
     nodes = ["Harry","Sally","Peter","Chris"]
     edges = [("Harry","Sally"),("Peter","Chris")]
 
     myConfig = { "nodeHighlightBehavior": "true", "node": { "color": "lightgreen", "size": 120, "highlightStrokeColor": "blue",}, "link": { "highlightColor": "lightblue",}, }
 
-    return_value = agraph(nodes=nodes, edges=edges, nodeHighlightBehavior="true", node_color="lightreen",node_size=120, highlightStrokeColor="blue", highlightColor="lightblue" )
+    return_value = agraph(nodes=nodes, edges=edges, nodeHighlightBehavior="true", node_color="darkorange", node_size=1000, highlightStrokeColor="blue", highlightColor="lightblue" )
 
     # st.write(return_value)
     # st.markdown("You've clicked %s times!" % int(num_clicks))

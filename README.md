@@ -1,10 +1,12 @@
 
+Based on [react-d3-graph](https://www.npmjs.com/package/react-d3-graph)
 
-##Install
 
-pip install streamlit-agraph
+## Install
 
-##Use
+`pip install streamlit-agraph`
+
+## Use
 ```python
 import agraph
 import streamlit
@@ -21,5 +23,5 @@ return_value = agraph(nodes=nodes,
 ```
 
 
-![example](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png "Simple Example")
+![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png)
 

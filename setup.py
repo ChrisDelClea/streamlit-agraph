@@ -8,13 +8,13 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="streamlit-agraph",
-    version="0.0.2",
+    version="0.0.5",
     author="Christian Klose",
     author_email="chris.klose@gmx.net",
-    description="",
+    description="Interactive Graph Vis for Streamlit.",
     long_description= long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/ChrisChross/streamlit-agraph",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[],

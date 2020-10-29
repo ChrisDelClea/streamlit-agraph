@@ -1,12 +1,37 @@
 Metadata-Version: 2.1
 Name: streamlit-agraph
-Version: 0.0.2
-Summary: UNKNOWN
-Home-page: UNKNOWN
+Version: 0.0.5
+Summary: Interactive Graph Vis for Streamlit. Based on https://www.npmjs.com/package/react-d3-graph .
+Home-page: https://github.com/ChrisChross/streamlit-agraph
 Author: Christian Klose
 Author-email: chris.klose@gmx.net
 License: UNKNOWN
-Description: UNKNOWN
+Description: 
+        
+        ## Install
+        
+        `pip install streamlit-agraph`
+        
+        ## Use
+        ```python
+        import agraph
+        import streamlit
+        
+        nodes = ["Harry","Sally","Peter","Chris"]
+        edges = [("Harry","Sally"),("Peter","Chris")]
+        
+        return_value = agraph(nodes=nodes,
+                              edges=edges, 
+                              nodeHighlightBehavior="true",
+                              node_color="blue", node_size=1000,
+                              highlightStrokeColor="blue",
+                              highlightColor="lightblue" )
+        ```
+        
+        
+        ![example](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png "Simple Example")
+        
+        
 Platform: UNKNOWN
 Requires-Python: >=3.6
-Description-Content-Type: text/plain
+Description-Content-Type: text/markdown
