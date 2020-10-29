@@ -21,10 +21,10 @@ _RELEASE = True
 
 if not _RELEASE:
     _agraph = components.declare_component(
-        # We give the component a simple, descriptive name ("agraph"
+        # We give the component a simple, descriptive name ("streamlit_agraph"
         # does not fit this bill, so please choose something better for your
         # own component :)
-        "agraph",
+        "streamlit_agraph",
         # Pass `url` here to tell Streamlit that the component will be served
         # by the local dev server that you run via `npm run start`.
         # (This is useful while your component is in development.)
@@ -36,7 +36,7 @@ else:
     # build directory:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _agraph = components.declare_component("agraph", path=build_dir)
+    _agraph = components.declare_component("streamlit_agraph", path=build_dir)
 
 
 # Create a wrapper function for the component. This is an optional
@@ -56,7 +56,7 @@ def agraph(nodes, edges, nodeHighlightBehavior="true", node_color="lightreen", n
 
 # Add some test code to play with the component while it's in development.
 # During development, we can run this just as we would any other Streamlit
-# app: `$ streamlit run agraph/__init__.py`
+# app: `$ streamlit run streamlit_agraph/__init__.py`
 if not _RELEASE:
     import json
     import streamlit as st
