@@ -1,1 +1,1 @@
-recursive-include agraph/frontend/build *
+recursive-include streamlit_agraph/frontend/build *

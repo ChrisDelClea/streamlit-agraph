@@ -11,8 +11,8 @@ Based on [react-d3-graph](https://www.npmjs.com/package/react-d3-graph)
 import streamlit
 from streamlit_agraph import agraph
 
-nodes = ["Harry","Sally","Peter","Chris"]
-edges = [("Harry","Sally"),("Peter","Chris")]
+nodes = ["Harry","Sally"]
+edges = [("Harry","Sally")]
 
 return_value = agraph(nodes=nodes,
                       edges=edges, 
