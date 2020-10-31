@@ -21,31 +21,23 @@ class AgraphComponent extends StreamlitComponentBase<State> {
   public render = (): ReactNode => {
 
     const data = JSON.parse(this.props.args["data"]);
-    const nodeHighlightBehavior = this.props.args["nodeHighlightBehavior"];
-    const node_color = this.props.args["node_color"];
-    const node_size = this.props.args["node_size"];
-    const highlightStrokeColor = this.props.args["highlightStrokeColor"];
-    const highlightColor = this.props.args["highlightColor"];
+    const config = JSON.parse(this.props.args["config"]);
 
-    // const data = {
-    //     nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
-    //     links: [
-    //         { source: "Harry", target: "Sally" },
-    //         { source: "Harry", target: "Alice" },
-    //     ],
-    // };
+// const config = {
+//     nodeHighlightBehavior: true
+// };
 
-    const config = {
-        nodeHighlightBehavior: nodeHighlightBehavior,
-        node: {
-            color: node_color,
-            size: node_size,
-            highlightStrokeColor:highlightStrokeColor,
-        },
-        link: {
-            highlightColor: highlightColor,
-        },
-  };
+//     const config = {
+//         nodeHighlightBehavior: nodeHighlightBehavior,
+//         node: {
+//             color: node_color,
+//             size: node_size,
+//             highlightStrokeColor:highlightStrokeColor,
+//         },
+//         link: {
+//             highlightColor: highlightColor,
+//         },
+//   };
 
     const onClickGraph = function() {
         window.alert(`Clicked the graph background`);

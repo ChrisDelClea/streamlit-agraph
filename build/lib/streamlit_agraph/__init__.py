@@ -43,7 +43,7 @@ if not _RELEASE:
 
     myConfig = { "nodeHighlightBehavior": "true", "node": { "color": "lightgreen", "size": 120, "highlightStrokeColor": "blue",}, "link": { "highlightColor": "lightblue",}, }
 
-    return_value = agraph(nodes=nodes, edges=edges, nodeHighlightBehavior="true", node_color="darkorange", node_size=1000, highlightStrokeColor="blue", highlightColor="lightblue" )
+    return_value = agraph(nodes=nodes, edges=edges, nodeHighlightBehavior="true", node_color="#82E0AA", node_size=750, highlightStrokeColor="blue", highlightColor="lightblue" )
 
     # st.write(return_value)
     # st.markdown("You've clicked %s times!" % int(num_clicks))

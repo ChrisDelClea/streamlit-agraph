@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: streamlit-agraph
-Version: 0.0.20
+Version: 0.0.21
 Summary: Interactive Graph Vis for Streamlit.
 Home-page: https://github.com/ChrisChross/streamlit-agraph
 Author: Christian Klose
@@ -19,8 +19,8 @@ Description:
         import streamlit
         from streamlit_agraph import agraph
         
-        nodes = ["Harry","Sally","Peter","Chris"]
-        edges = [("Harry","Sally"),("Peter","Chris")]
+        nodes = ["Harry","Sally"]
+        edges = [("Harry","Sally")]
         
         return_value = agraph(nodes=nodes,
                               edges=edges, 
