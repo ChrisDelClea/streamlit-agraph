@@ -35,3 +35,7 @@ return_value = agraph(nodes=nodes,
 
 ![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png)
 
+![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example2.png)
+
+![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example3.png)
+
