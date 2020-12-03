@@ -1,8 +1,18 @@
 import os
-import streamlit.components.v1 as components
+import csv
 import json
 
+from operator import itemgetter
+import streamlit.components.v1 as components
+from typing import List, Set
+from streamlit_agraph import TripleStore
+
+import networkx as nx
+from networkx.algorithms import community
+
+import streamlit as st
 # python setup.py sdist bdist_wheel
+# twine upload  dist/*
 
 _RELEASE = True
 
@@ -86,8 +96,66 @@ class Edge:
   def to_dict(self):
     return self.__dict__
 
+class Triple:
+  def __init__(self, subj: Node, pred: Edge, obj:Node ) -> None:
+    self.subj = subj
+    self.pred = pred
+    self.obj = obj
+
+class TripleStore:
+  def __init__(self) ->None:
+    self.nodes_set: Set[Node] = set()
+    self.edges_set: Set[Edge] = set()
+    self.triples_set: Set[Triple] = set()
+
+  def add_triple(self, node1, link, node2, picture=""):
+    nodeA = Node(node1, svg=picture)
+    nodeB = Node(node2)
+    edge = Edge(source=nodeA.id, target=nodeB.id, labelProperty=link, renderLabel=True)  # linkValue=link
+    triple = Triple(nodeA, edge, nodeB)
+    self.nodes_set.update([nodeA, nodeB])
+    self.edges_set.add(edge)
+    self.triples_set.add(triple)
+
+  def getTriples(self)->Set[Triple]:
+    return self.triples_set
+
+  def getNodes(self)->Set[Node]:
+    return self.nodes_set
+
+  def getEdges(self)->Set[Edge]:
+    return self.edges_set
+
 # def parse_node(*args):
 #  nodes_data = [{"id": f"{node}"} for node in nodes]
+
+class GraphAlgos:
+  def __init__(self, store:TripleStore):
+    self.node_names = [n.id for n in store.nodes_set]
+    self.edges = [(e.source, e.target) for e in store.edges_set]
+    G = nx.Graph()  # Initialize a Graph object
+    G.add_nodes_from(self.node_names)  # Add nodes to the Graph
+    G.add_edges_from(self.edges)  # Add edges to the Graph
+
+    self.G = G
+    self.density = self.density()
+    # self.shortest_path() = self.shortest_path()
+    # self.find_communities = self.find_communities()
+    pass
+
+  def density(self):
+    return nx.density(self.G)
+
+  def shortest_path(self, source, target):
+    try:
+      sp = nx.shortest_path(self.G, source=source, target=target)
+    except nx.NetworkXNoPath:
+      return  []
+    else:
+      return sp
+  def find_communities(self) -> str:
+    # print(nx.info(G))  # Print information about the Graph
+    return "hello community"
 
 def agraph(nodes, edges, config):
 

@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="streamlit-agraph",
-    version="0.0.27",
+    version="0.0.30",
     author="Christian Klose",
     author_email="chris.klose@gmx.net",
     description="Interactive Graph Vis for Streamlit.",
@@ -24,5 +24,6 @@ setuptools.setup(
         # If your component has other Python dependencies, list
         # them here.
         "streamlit >= 0.63",
+        "networkx",
     ],
 )

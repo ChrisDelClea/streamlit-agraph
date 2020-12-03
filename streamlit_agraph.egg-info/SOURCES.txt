@@ -14,7 +14,6 @@ streamlit_agraph/frontend/build/precache-manifest.2fdc19f7a6735129086ec04f48b2db
 streamlit_agraph/frontend/build/service-worker.js
 streamlit_agraph/frontend/build/static/js/2.f5d1d3b4.chunk.js
 streamlit_agraph/frontend/build/static/js/2.f5d1d3b4.chunk.js.LICENSE.txt
-streamlit_agraph/frontend/build/static/js/2.f5d1d3b4.chunk.js.map
 streamlit_agraph/frontend/build/static/js/main.081b8332.chunk.js
 streamlit_agraph/frontend/build/static/js/main.081b8332.chunk.js.map
 streamlit_agraph/frontend/build/static/js/runtime-main.255788cc.js

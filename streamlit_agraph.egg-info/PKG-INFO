@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: streamlit-agraph
-Version: 0.0.27
+Version: 0.0.30
 Summary: Interactive Graph Vis for Streamlit.
 Home-page: https://github.com/ChrisChross/streamlit-agraph
 Author: Christian Klose
@@ -42,6 +42,10 @@ Description:
         ```
         
         ![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png)
+        
+        ![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example2.png)
+        
+        ![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example3.png)
         
         
 Platform: UNKNOWN
