@@ -5,7 +5,6 @@ import json
 from operator import itemgetter
 import streamlit.components.v1 as components
 from typing import List, Set
-from streamlit_agraph import TripleStore
 
 import networkx as nx
 from networkx.algorithms import community
@@ -126,9 +125,6 @@ class TripleStore:
   def getEdges(self)->Set[Edge]:
     return self.edges_set
 
-# def parse_node(*args):
-#  nodes_data = [{"id": f"{node}"} for node in nodes]
-
 class GraphAlgos:
   def __init__(self, store:TripleStore):
     self.node_names = [n.id for n in store.nodes_set]
@@ -156,6 +152,9 @@ class GraphAlgos:
   def find_communities(self) -> str:
     # print(nx.info(G))  # Print information about the Graph
     return "hello community"
+
+# def parse_node(*args):
+#  nodes_data = [{"id": f"{node}"} for node in nodes]
 
 def agraph(nodes, edges, config):
 
