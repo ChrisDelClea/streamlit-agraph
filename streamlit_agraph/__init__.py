@@ -5,7 +5,6 @@ import json
 from operator import itemgetter
 import streamlit.components.v1 as components
 from typing import List, Set
-from streamlit_agraph import TripleStore
 
 import networkx as nx
 from networkx.algorithms import community
