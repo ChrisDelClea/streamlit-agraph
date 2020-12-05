@@ -22,7 +22,6 @@ config = Config(width=500,
                 directed=True,
                 nodeHighlightBehavior=True, 
                 highlightColor="#F7A7A6", # or "blue"
-                directed=True, 
                 collapsible=True,
                 # coming soon (set for all): node_size=1000, node_color="blue"
                 ) 
