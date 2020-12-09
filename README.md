@@ -13,9 +13,9 @@ from streamlit_agraph import agraph, Node, Edge, Config
 
 nodes = []
 edges = []
-nodes.append( Node(id="Spiderman", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") )
-nodes.append( Node(id="Captain_Marvel", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png") )
-edges.append( Edge(source="Captain_Marvel", target="Spiderman", type="CURVE_SMOOTH") )
+nodes.append( Node(id="Spiderman", label="Peter Parker", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png", **kwargs) )
+nodes.append( Node(id="Captain_Marvel", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png", **kwargs) )
+edges.append( Edge(source="Captain_Marvel", label="friend_of", target="Spiderman", type="CURVE_SMOOTH") )
 
 config = Config(width=500, 
                 height=500, 
@@ -23,7 +23,9 @@ config = Config(width=500,
                 nodeHighlightBehavior=True, 
                 highlightColor="#F7A7A6", # or "blue"
                 collapsible=True,
-                # coming soon (set for all): node_size=1000, node_color="blue"
+                node={'labelProperty':'label'},
+                link={'labelProperty': 'label', 'renderLabel': True}
+                **kwargs # e.g. node_size=1000 or node_color="blue"
                 ) 
 
 return_value = agraph(nodes=nodes, 
