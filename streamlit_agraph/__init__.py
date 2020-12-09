@@ -116,7 +116,7 @@ class TripleStore:
   def add_triple(self, node1, link, node2, picture=""):
     nodeA = Node(node1, svg=picture)
     nodeB = Node(node2)
-    edge = Edge(source=nodeA.id, target=nodeB.id, labelProperty=link, renderLabel=True)  # linkValue=link
+    edge = Edge(source=nodeA.id, target=nodeB.id, label=link, renderLabel=True)  # linkValue=link
     triple = Triple(nodeA, edge, nodeB)
     self.nodes_set.update([nodeA, nodeB])
     self.edges_set.add(edge)
