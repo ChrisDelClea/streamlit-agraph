@@ -10,8 +10,7 @@ import networkx as nx
 from networkx.algorithms import community
 
 import streamlit as st
-# python setup.py sdist bdist_wheel
-# twine upload  dist/*
+
 
 _RELEASE = True
 
@@ -31,7 +30,7 @@ else:
 
 
 class Config:
-  def __init__(self, height=800, width=1000, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True):
+  def __init__(self, height=800, width=1000, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True, **kwargs):
     self.height = height
     self.width = width
     self.nodeHighlightBehavior = nodeHighlightBehavior
@@ -39,6 +38,7 @@ class Config:
     self.automaticRearrangeAfterDropNode=True
     self.collapsible=collapsible
     self.directed=directed
+    self.__dict__.update(kwargs)
     # self.node = { "highlightStrokeColor":"#F7A7A6"} #"highlightColor":"black",
     # self.link = {"highlightColor": "#FDD2BS"}
 
@@ -50,11 +50,14 @@ class Node:
               id,
               size=250,
               color="#ACDBC9",
+              # label=None,
+              # labelProperty=None,
               renderLabel=True,
               labelPosition="right",
               svg="",
               symbolType="circle",
-              strokeColor="" #F7A7A6
+              strokeColor="", #F7A7A6
+              **kwargs
                ):
     self.id=id
     self.size=size
@@ -64,6 +67,7 @@ class Node:
     self.svg=svg
     self.symbolType=symbolType  # "cross", "diamond", "square", "star", "triangle", "wye"
     self.strokeColor=strokeColor
+    self.__dict__.update(kwargs)
 
   def to_dict(self):
     return self.__dict__
@@ -71,14 +75,15 @@ class Node:
 class Edge:
   def __init__(self, source, target,
               color="#F7A7A6",
-              renderLabel=False,
-              labelPosition="right",
               # highlightColor="#F7A7A6", #F7A7A6
               type="STRAIGHT",
               semanticStrokeWidth=False,
               strokeWidth=1.5,
               labelProperty="",
-              linkValue=1
+              renderLabel=False,
+              labelPosition="right",
+              linkValue=1,
+               **kwargs
                ):
     self.source=source
     self.target=target
@@ -91,6 +96,7 @@ class Edge:
     self.strokeWidth=strokeWidth
     self.labelProperty=labelProperty
     self.linkValue=linkValue
+    self.__dict__.update(kwargs)
 
   def to_dict(self):
     return self.__dict__
@@ -182,7 +188,7 @@ if not _RELEASE:
     st.subheader("Component with constant args")
     nodes = []
     edges = []
-    nodes.append( Node(id="Spiderman", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") ) # ,
+    nodes.append( Node(id="Spiderman", size=1000, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") ) # ,
     nodes.append( Node(id="Captain_Marvel", size=400, svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png"))
     edges.append(Edge(source="Captain_Marvel", target="Spiderman", type="CURVE_SMOOTH"))
     # nodes.append( Node(id="Chris_Klose", size=400, svg="https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/Chris.png?raw=true") ) #
@@ -194,7 +200,7 @@ if not _RELEASE:
 
     # myConfig = { "nodeHighlightBehavior": "true", "node": { "color": "lightgreen", "size": 120, "highlightStrokeColor": "blue",}, "link": { "highlightColor": "lightblue",}, }
 
-    config = Config(width=500, height=500, directed=True)
+    config = Config(width=500, height=500, directed=True )
     return_value = agraph(nodes=nodes, edges=edges, config=config)
 
     # st.write(return_value)
