@@ -1,5 +1,5 @@
 # karate_club_graph.py
-# An example of basic and common interops between 
+# An example of basic and common interoperability between 
 # streamlit-agraph and networkx.
 #
 # Use the following command to launch the app
