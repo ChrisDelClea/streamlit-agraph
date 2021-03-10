@@ -8,12 +8,11 @@
 import networkx as nx
 from streamlit_agraph import agraph, Node, Edge, Config
 
-# generate the networkx implementation of Zachary's Karate Club graph
+# Generate the networkx implementation of Zachary's Karate Club graph
 # (https://en.wikipedia.org/wiki/Zachary%27s_karate_club)
-
 G = nx.karate_club_graph()
 
-# create the equivalent Node and Edge lists
+# Create the equivalent Node and Edge lists
 nodes = [Node(id=i, label=str(i), size=200) for i in range(len(G.nodes))]
 edges = [Edge(source=i, target=j, type="CURVE_SMOOTH") for (i,j) in G.edges]
 
