@@ -30,12 +30,11 @@ else:
 
 
 class Config:
-  def __init__(self, height=800, width=1000, graphviz_layout=None, rankdir=None, ranksep=None, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True, **kwargs):
+  def __init__(self, height=800, width=1000, graphviz_layout=None, graphviz_config=None, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True, **kwargs):
     self.height = height
     self.width = width
     self.graphviz_layout = graphviz_layout
-    self.rankdir = rankdir
-    self.ranksep = ranksep
+    self.graphviz_config = graphviz_config
     self.nodeHighlightBehavior = nodeHighlightBehavior
     self.highlightColor = highlightColor
     self.automaticRearrangeAfterDropNode=True
@@ -170,8 +169,8 @@ def _set_graphviz_layout(nodes, edges, config):
         import pygraphviz as pgv
     except ImportError as e:
         raise ImportError("requires pygraphviz " "http://pygraphviz.github.io/") from e
-    G = pgv.AGraph(rankdir=getattr(config, 'rankdir'), 
-                    ranksep=getattr(config, 'ranksep'))
+      
+    G = pgv.AGraph(**getattr(config, 'graphviz_config'))
     node_args = {}
     for node in nodes:
       node_id = getattr(node, 'id')
@@ -181,7 +180,6 @@ def _set_graphviz_layout(nodes, edges, config):
       G.add_edge(getattr(edge, 'source'), getattr(edge, 'target'))
     G.layout(getattr(config, 'graphviz_layout'))
     
-    node_pos = {}
     for n in G.nodes():
       node = G.get_node(n)
       try:
