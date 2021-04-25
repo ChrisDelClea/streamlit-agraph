@@ -30,9 +30,12 @@ else:
 
 
 class Config:
-  def __init__(self, height=800, width=1000, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True, **kwargs):
+  def __init__(self, height=800, width=1000, graphviz_layout=None, rankdir=None, ranksep=None, nodeHighlightBehavior=True, highlightColor="#F7A7A6", directed=True, collapsible=True, **kwargs):
     self.height = height
     self.width = width
+    self.graphviz_layout = graphviz_layout
+    self.rankdir = rankdir
+    self.ranksep = ranksep
     self.nodeHighlightBehavior = nodeHighlightBehavior
     self.highlightColor = highlightColor
     self.automaticRearrangeAfterDropNode=True
@@ -162,7 +165,42 @@ class GraphAlgos:
 # def parse_node(*args):
 #  nodes_data = [{"id": f"{node}"} for node in nodes]
 
+def _set_graphviz_layout(nodes, edges, config):
+    try:
+        import pygraphviz as pgv
+    except ImportError as e:
+        raise ImportError("requires pygraphviz " "http://pygraphviz.github.io/") from e
+    G = pgv.AGraph(rankdir=getattr(config, 'rankdir'), 
+                    ranksep=getattr(config, 'ranksep'))
+    node_args = {}
+    for node in nodes:
+      node_id = getattr(node, 'id')
+      G.add_node(node_id)
+      node_args[node_id] = node.to_dict()
+    for edge in edges:
+      G.add_edge(getattr(edge, 'source'), getattr(edge, 'target'))
+    G.layout(getattr(config, 'graphviz_layout'))
+    
+    node_pos = {}
+    for n in G.nodes():
+      node = G.get_node(n)
+      try:
+          xs = node.attr["pos"].split(",")
+          node_args[node.get_name()].update({'x': float(xs[0]), 
+                                              'y': float(xs[1])})
+      except:
+          print("no position for node", n)
+          node_args[node.get_name()].update({'x': 0, 'y': 0})
+            
+    nodes = [Node(**node_args[n]) for n in G.nodes()]
+    
+    return nodes, edges
+      
 def agraph(nodes, edges, config):
+    layout = getattr(config, 'graphviz_layout')
+    if layout:
+      config.d3 = {'disableLinkForce': True}
+      nodes, edges = _set_graphviz_layout(nodes, edges, config)
 
     nodes_data = [ node.to_dict() for node in nodes]
     edges_data = [ edge.to_dict() for edge in edges]
