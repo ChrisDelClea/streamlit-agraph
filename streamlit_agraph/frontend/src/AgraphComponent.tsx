@@ -23,64 +23,44 @@ class AgraphComponent extends StreamlitComponentBase<State> {
     const data = JSON.parse(this.props.args["data"]);
     const config = JSON.parse(this.props.args["config"]);
 
-// const config = {
-//     nodeHighlightBehavior: true
-// };
-
-//     const config = {
-//         nodeHighlightBehavior: nodeHighlightBehavior,
-//         node: {
-//             color: node_color,
-//             size: node_size,
-//             highlightStrokeColor:highlightStrokeColor,
-//         },
-//         link: {
-//             highlightColor: highlightColor,
-//         },
-//   };
-
     const onClickGraph = function() {
-        window.alert(`Clicked the graph background`);
     };
 
     const onClickNode = function(nodeId: any) {
-        window.alert(`Clicked node ${nodeId}`);
+      Streamlit.setComponentValue({"action": "onClickNode", "node": nodeId});
     };
 
     const onDoubleClickNode = function(nodeId: any) {
-        window.alert(`Double clicked node ${nodeId}`);
+      // This doesn't seem to work
+      Streamlit.setComponentValue({"action": "onDoubleClickNode", "node": nodeId});
     };
 
     const onRightClickNode = function(event: any, nodeId: any) {
-        window.alert(`Right clicked node ${nodeId}`);
+      Streamlit.setComponentValue({"action": "onRightClickNode", "node": nodeId});
     };
 
     const onMouseOverNode = function(nodeId: any) {
-        window.alert(`Mouse over node ${nodeId}`);
     };
 
     const onMouseOutNode = function(nodeId: any) {
-        window.alert(`Mouse out node ${nodeId}`);
     };
 
     const onClickLink = function(source: any, target: any) {
-        window.alert(`Clicked link between ${source} and ${target}`);
+        Streamlit.setComponentValue({"action": "onClickLink", "sourceNode": source, "targetNode":target});
     };
 
     const onRightClickLink = function(event: any, source: any, target: any) {
-        window.alert(`Right clicked link between ${source} and ${target}`);
+      Streamlit.setComponentValue({"action": "onRightClickLink", "sourceNode": source, "targetNode":target});
     };
 
     const onMouseOverLink = function(source: any, target: any) {
-        window.alert(`Mouse over in link between ${source} and ${target}`);
     };
 
     const onMouseOutLink = function(source: any, target: any) {
-        window.alert(`Mouse out link between ${source} and ${target}`);
     };
 
     const onNodePositionChange = function(nodeId: any, x: any, y: any) {
-        window.alert(`Node ${nodeId} is moved to new position. New position is x= ${x} y= ${y}`);
+      Streamlit.setComponentValue({"action": "onNodePositionChange", "node":nodeId , "x": x, "y":y});
     };
 
     return (
@@ -91,20 +71,11 @@ class AgraphComponent extends StreamlitComponentBase<State> {
         onClickNode={onClickNode}
         onDoubleClickNode={onDoubleClickNode}
         onRightClickNode={onRightClickNode}
-        // onClickGraph={onClickGraph}
         onClickLink={onClickLink}
         onRightClickLink={onRightClickLink}
       />
     )
   }
-
-  // private onClicked = (): void => {
-  //   // Streamlit via `Streamlit.setComponentValue`.
-  //   this.setState(
-  //     prevState => ({ numClicks: prevState.numClicks + 1 }),
-  //     () => Streamlit.setComponentValue(this.state.numClicks)
-  //   )
-  // }
 }
 
 // "withStreamlitConnection" is a wrapper function. It bootstraps the
