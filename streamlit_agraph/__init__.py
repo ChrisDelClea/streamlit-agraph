@@ -145,7 +145,6 @@ class GraphAlgos:
     self.density = self.density()
     # self.shortest_path() = self.shortest_path()
     # self.find_communities = self.find_communities()
-    pass
 
   def density(self):
     return nx.density(self.G)
@@ -157,6 +156,7 @@ class GraphAlgos:
       return  []
     else:
       return sp
+
   def find_communities(self) -> str:
     # print(nx.info(G))  # Print information about the Graph
     return "hello community"

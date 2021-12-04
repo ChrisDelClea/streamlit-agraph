@@ -6,11 +6,11 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 # python setup.py sdist bdist_wheel
-# twine upload  dist/*
+# python -m twine upload  dist/*
 
 setuptools.setup(
     name="streamlit-agraph",
-    version="0.0.35",
+    version="0.0.37",
     author="Christian Klose",
     author_email="chris.klose@gmx.net",
     description="Interactive Graph Vis for Streamlit.",
@@ -27,5 +27,6 @@ setuptools.setup(
         # them here.
         "streamlit >= 0.63",
         "networkx >= 2.5",
+        "rdflib >= 6.0.2",
     ],
 )
