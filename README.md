@@ -58,7 +58,7 @@ store = TripleStore()
 for subj, pred, obj in graph:
     store.add_triple(subj, pred, obj, "")
     
-agraph(list(store.getNodes()), (store.getEdges()), config)
+agraph(list(store.getNodes()), list(store.getEdges()), config)
 ```
 
 Also graph algos can dirctly supported via the networkx API (untested & incomplete - yet):
