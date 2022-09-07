@@ -1,5 +1,5 @@
 
-Based on [react-d3-graph](https://www.npmjs.com/package/react-d3-graph)
+Based on [react-graph-vis](https://github.com/crubier/react-graph-vis)
 
 
 ## Install
@@ -15,28 +15,25 @@ nodes = []
 edges = []
 nodes.append( Node(id="Spiderman", 
                    label="Peter Parker", 
-                   size=400, 
-                   svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") 
+                   size=25, 
+                   shape="circularImage",
+                   image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") 
             ) # includes **kwargs
 nodes.append( Node(id="Captain_Marvel", 
-                   size=400, 
-                   svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png") 
+                   size=25,
+                   shape="circularImage",
+                   image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png") 
             )
 edges.append( Edge(source="Captain_Marvel", 
                    label="friend_of", 
                    target="Spiderman", 
-                   type="CURVE_SMOOTH") 
-            ) # includes **kwargs
+                   # **kwargs
+                   ) 
+            ) 
 
 config = Config(width=500, 
                 height=500, 
-                directed=True,
-                nodeHighlightBehavior=True, 
-                highlightColor="#F7A7A6", # or "blue"
-                collapsible=True,
-                node={'labelProperty':'label'},
-                link={'labelProperty': 'label', 'renderLabel': True}
-                # **kwargs e.g. node_size=1000 or node_color="blue"
+                # **kwargs
                 ) 
 
 return_value = agraph(nodes=nodes, 
@@ -48,6 +45,7 @@ return_value = agraph(nodes=nodes,
 You may also want to use the TripleStore (untested & incomplete - yet): 
 
 ```python
+# Currently not workin since update to agraph 2.0 - work in progress
 from rdflib import Graph
 from streamlit_agraph import TripleStore, agraph
 

@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: streamlit-agraph
-Version: 0.0.37
+Version: 0.0.41
 Summary: Interactive Graph Vis for Streamlit.
 Home-page: https://github.com/ChrisChross/streamlit-agraph
 Author: Christian Klose
 Author-email: chris.klose@gmx.net
 License: UNKNOWN
 Description: 
-        Based on [react-d3-graph](https://www.npmjs.com/package/react-d3-graph)
+        Based on [react-graph-vis](https://github.com/crubier/react-graph-vis)
         
         
         ## Install
@@ -23,28 +23,25 @@ Description:
         edges = []
         nodes.append( Node(id="Spiderman", 
                            label="Peter Parker", 
-                           size=400, 
-                           svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") 
+                           size=25, 
+                           shape="circularImage",
+                           image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png") 
                     ) # includes **kwargs
         nodes.append( Node(id="Captain_Marvel", 
-                           size=400, 
-                           svg="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png") 
+                           size=25,
+                           shape="circularImage",
+                           image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png") 
                     )
         edges.append( Edge(source="Captain_Marvel", 
                            label="friend_of", 
                            target="Spiderman", 
-                           type="CURVE_SMOOTH") 
-                    ) # includes **kwargs
+                           # **kwargs
+                           ) 
+                    ) 
         
         config = Config(width=500, 
                         height=500, 
-                        directed=True,
-                        nodeHighlightBehavior=True, 
-                        highlightColor="#F7A7A6", # or "blue"
-                        collapsible=True,
-                        node={'labelProperty':'label'},
-                        link={'labelProperty': 'label', 'renderLabel': True}
-                        # **kwargs e.g. node_size=1000 or node_color="blue"
+                        # **kwargs
                         ) 
         
         return_value = agraph(nodes=nodes, 
@@ -56,6 +53,7 @@ Description:
         You may also want to use the TripleStore (untested & incomplete - yet): 
         
         ```python
+        # Currently not workin since update to agraph 2.0 - work in progress
         from rdflib import Graph
         from streamlit_agraph import TripleStore, agraph
         
@@ -66,7 +64,7 @@ Description:
         for subj, pred, obj in graph:
             store.add_triple(subj, pred, obj, "")
             
-        agraph(list(store.getNodes()), (store.getEdges()), config)
+        agraph(list(store.getNodes()), list(store.getEdges()), config)
         ```
         
         Also graph algos can dirctly supported via the networkx API (untested & incomplete - yet):

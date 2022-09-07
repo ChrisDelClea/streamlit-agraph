@@ -32,7 +32,7 @@ most_connected_node = sorted(G.degree, key=lambda x: x[1], reverse=True)[0]
 degree = G.degree(most_connected_node)
 
 # Create egonet for the focal node
-hub_ego = nx.ego_graph(G, most_connected_node)
+hub_ego = nx.ego_graph(G, most_connected_node[0])
 
 # Now create the equivalent Node and Edge lists
 nodes = [Node(id=i, label=str(i), size=200) for i in hub_ego.nodes]

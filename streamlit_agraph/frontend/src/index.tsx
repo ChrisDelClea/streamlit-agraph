@@ -1,10 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import AgraphComponent from "./AgraphComponent"
+import { StreamlitProvider } from "streamlit-component-lib-react-hooks"
+import StreamlitVisGraph from "./StreamlitVisGraph"
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <AgraphComponent />
+    <StreamlitProvider>
+      <StreamlitVisGraph/>
+    </StreamlitProvider>
   </React.StrictMode>,
   document.getElementById("root")
 )
