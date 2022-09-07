@@ -1,3 +1,0 @@
-streamlit>=0.63
-networkx>=2.5
-rdflib>=6.0.2
