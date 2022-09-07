@@ -146,3 +146,8 @@ fabric.properties
 /streamlit_streamlit_agraph.egg-info/
 /streamlit_agraph/frontend/node_modules/
 /build/
+/.idea/
+/dist/
+.DS_Store
+default.profraw
+default 4.profraw
