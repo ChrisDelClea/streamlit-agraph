@@ -6,6 +6,8 @@ Based on [react-graph-vis](https://github.com/crubier/react-graph-vis)
 
 `pip install streamlit-agraph`
 
+## Example App 
+Check out the example [App](https://chrisdelclea-word-knowledge-graph-main-luylof.streamlitapp.com)!
 ## Use
 ```python
 import streamlit
@@ -70,11 +72,7 @@ algos.density()
 
 Formating the graph with hierachies is also possible, see `examples/iris_decision_tree.py`:
 
-![img.png](imgs/img.png)
+![marvel.png](imgs/marvel.png)
 
 
-![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example.png)
 
-![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example2.png)
-
-![](https://github.com/ChrisChross/streamlit-agraph/blob/master/imgs/example3.png)

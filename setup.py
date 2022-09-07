@@ -10,7 +10,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setuptools.setup(
     name="streamlit-agraph",
-    version="0.0.41",
+    version="0.0.42",
     author="Christian Klose",
     author_email="chris.klose@gmx.net",
     description="Interactive Graph Vis for Streamlit.",
