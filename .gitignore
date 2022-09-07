@@ -152,3 +152,4 @@ fabric.properties
 default.profraw
 default 4.profraw
 !/streamlit_agraph/frontend/node_modules/
+/streamlit_agraph/frontend/node_modules/
