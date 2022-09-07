@@ -742,6 +742,42 @@
       <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/yargs-parser/lib" />
       <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/.cache" />
       <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/build" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/@testing-library/dom/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/array.prototype.flat/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/array-includes/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/concat-stream/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/dom-serializer/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/duplexify/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/extend-shallow/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/flush-write-stream/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/from2/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/fs-write-stream-atomic/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/hpack.js/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/html-webpack-plugin/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/htmlparser2/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/http-errors/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/internal-slot/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/jsdom/node_modules/acorn/acorn" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/jsdom/node_modules/acorn/acorn-loose" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/jsdom/node_modules/acorn/acorn-walk" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/lru-cache/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/memory-fs/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/mixin-deep/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/node-libs-browser/node_modules/util/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/object.entries/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/object.fromentries/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/object.getownpropertydescriptors/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/object.values/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/parallel-transform/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/postcss/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/react-dev-utils/node_modules/strip-ansi/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/regexp.prototype.flags/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/stream-browserify/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/stream-http/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/string.prototype.matchall/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/stringify-object/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/through2/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/streamlit_agraph/frontend/node_modules/util.promisify/node_modules" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (st-roadmap)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

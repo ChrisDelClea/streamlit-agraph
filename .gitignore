@@ -144,3 +144,5 @@ crashlytics-build.properties
 fabric.properties
 /streamlit_agraph.egg-info/
 /streamlit_streamlit_agraph.egg-info/
+/streamlit_agraph/frontend/node_modules/
+/build/
