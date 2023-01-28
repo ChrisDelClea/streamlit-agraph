@@ -21,7 +21,7 @@ def load_graph_data():
                                   title=node["link"],
                                   shape="circularImage",
                                   image=node["img"],
-                                  # group=sub_graph["name"],
+                                  group=sub_graph["name"],
                                   )
                              )
                 edges.append(Edge(source=node["hero"], target=sub_graph["name"], label="blongs_to"))
