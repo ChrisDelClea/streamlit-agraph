@@ -7,7 +7,7 @@ Based on [react-graph-vis](https://github.com/crubier/react-graph-vis)
 `pip install streamlit-agraph`
 
 ## Example App 
-Check out the example [App](https://chrisdelclea-word-knowledge-graph-main-luylof.streamlitapp.com)!
+Check out the example [App](https://marvelous-graph.streamlit.app)!
 
 ## Basic Usage
 ```python
