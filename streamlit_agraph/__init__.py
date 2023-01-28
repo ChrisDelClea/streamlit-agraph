@@ -53,13 +53,13 @@ if not _RELEASE:
 
     # config = Config(from_json="config.json")
 
-    config = Config(width=st.session_state.width,
-                    height=st.session_state.height,
-                    directed=st.session_state.directed,
-                    physics=st.session_state.physics,
-                    hierarchical=st.session_state.hierarchical,
-                    **kwargs,
-                    )
+    # config = Config(width=st.session_state.width,
+    #                 height=st.session_state.height,
+    #                 directed=st.session_state.directed,
+    #                 physics=st.session_state.physics,
+    #                 hierarchical=st.session_state.hierarchical,
+    #                 **kwargs,
+    #                 )
 
     return_value = agraph(nodes, edges, config=config)
 
