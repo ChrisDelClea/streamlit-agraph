@@ -46,7 +46,7 @@ return_value = agraph(nodes=nodes,
                       edges=edges, 
                       config=config)
 ```
-## Config Bilder
+## Config Builder
 ```python
 from streamlit_agraph.config import Config, ConfigBuilder
 
