@@ -9,6 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 # python -m twine upload  dist/*
 
 setuptools.setup(
+    license="MIT",
     name="streamlit-agraph",
     version="0.0.45",
     author="Christian Klose",
