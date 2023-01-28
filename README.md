@@ -8,7 +8,8 @@ Based on [react-graph-vis](https://github.com/crubier/react-graph-vis)
 
 ## Example App 
 Check out the example [App](https://chrisdelclea-word-knowledge-graph-main-luylof.streamlitapp.com)!
-## Use
+
+## Basic Usage
 ```python
 import streamlit
 from streamlit_agraph import agraph, Node, Edge, Config
@@ -33,18 +34,44 @@ edges.append( Edge(source="Captain_Marvel",
                    ) 
             ) 
 
-config = Config(width=500, 
-                height=500, 
+config = Config(width=750,
+                height=950,
+                directed=True, 
+                physics=True, 
+                hierarchical=False,
                 # **kwargs
-                ) 
+                )
 
 return_value = agraph(nodes=nodes, 
                       edges=edges, 
                       config=config)
+```
+## Config Bilder
+```python
+from streamlit_agraph.config import Config, ConfigBuilder
 
+# 1. Build the config (with sidebar to play with options) .
+config_builder = ConfigBuilder(nodes)
+config = config_builder.build()
+
+# 2. If your done, save the config to a file.
+config.save("config.json")
+
+# 3. Simple reload from json file (you can bump the builder at this point.)
+config = Config(from_json="config.json")
 ```
 
-You may also want to use the TripleStore (untested & incomplete - yet): 
+Formating the graph with hierachies is also possible via `Hierarchical Option` (see config):  
+Group as you can see on the node colors too. Just pass the `group` attribute to the `Node` object.
+
+![marvel.png](imgs/marvel_tree.png)
+
+
+
+## TripleStore
+
+You may also want to use the TripleStore (untested & incomplete - yet):  
+HINT: Make sure to add only unique nodes and edges.
 
 ```python
 # Currently not workin since update to agraph 2.0 - work in progress
@@ -70,9 +97,6 @@ algos.shortest_path("Spiderman", "Captain_Marvel")
 algos.density()
 ```
 
-Formating the graph with hierachies is also possible, see `examples/iris_decision_tree.py`:
-
-![marvel.png](imgs/marvel.png)
 
 
 

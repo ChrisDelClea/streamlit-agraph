@@ -7,7 +7,8 @@ import streamlit.components.v1 as components
 import streamlit as st
 
 from streamlit_agraph import data
-from streamlit_agraph.config import Config
+
+from streamlit_agraph.config import Config, ConfigBuilder
 from streamlit_agraph.triple import Triple
 from streamlit_agraph.node import Node
 from streamlit_agraph.edge import Edge
@@ -26,6 +27,9 @@ else:
     )
       
 def agraph(nodes, edges, config):
+    node_ids = [node.id for node in nodes]
+    if len(node_ids) > len(set(node_ids)):
+        st.warning("Duplicated node IDs exist.")
     nodes_data = [ node.to_dict() for node in nodes]
     edges_data = [ edge.to_dict() for edge in edges]
     config_json = json.dumps(config.__dict__)
@@ -34,28 +38,30 @@ def agraph(nodes, edges, config):
     component_value = _agraph(data=data_json, config=config_json)
     return component_value
 
-hierarchical = {
-      "enabled":False,
-      "levelSeparation": 150,
-      "nodeSpacing": 100,
-      "treeSpacing": 200,
-      "blockShifting": True,
-      "edgeMinimization": True,
-      "parentCentralization": True,
-      "direction": 'UD',        # UD, DU, LR, RL
-      "sortMethod": 'hubsize',  # hubsize, directed
-      "shakeTowards": 'leaves'  # roots, leaves
-    }
-
 
 if not _RELEASE:
+    st.set_page_config(layout="wide") # layout="wide"
+
     st.title("Streamlit Agraph 2.0")
-    # nodes.append( Node(id="Spiderman", shape="circularImage", size=25, image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_spiderman.png"))
-    # nodes.append( Node(id="Captain_Marvel", color="black", size=25, shape="circularImage", image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png"))
-    # nodes.append( Node(id="Chris", color="white", size=25, shape="circularImage", image="http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_wolverine.png"))
-    # edges.append( Edge(source="Captain_Marvel", target="Spiderman", label="friend_of") )
-    # edges.append( Edge(source="Captain_Marvel", target="Chris", label="friend_of") )
+
     nodes, edges = data.load_graph_data()
-    config = Config(width=750, height=750) # layout={"hierarchical":True} directed=True #
+
+    # Build the configs and save them to a file copy&paste dict to config directly.
+    config_builder = ConfigBuilder(nodes)
+    config = config_builder.build()
+    # config.save("config.json")
+
+    # config = Config(from_json="config.json")
+
+    config = Config(width=st.session_state.width,
+                    height=st.session_state.height,
+                    directed=st.session_state.directed,
+                    physics=st.session_state.physics,
+                    hierarchical=st.session_state.hierarchical,
+                    **kwargs,
+                    )
+
     return_value = agraph(nodes, edges, config=config)
+
+
     st.write(return_value)
