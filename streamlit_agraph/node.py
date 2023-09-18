@@ -22,3 +22,10 @@ class Node:
 
   def to_dict(self):
     return self.__dict__
+
+  def __eq__(self, other) -> bool:
+    return (isinstance(other, self.__class__) and
+            getattr(other, 'id', None) == self.id)
+
+  def __hash__(self) -> int:
+    return hash(self.id)
