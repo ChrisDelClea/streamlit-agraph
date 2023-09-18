@@ -14,6 +14,9 @@ class TripleStore:
     nodeA = Node(id=node1, image=image)
     nodeB = Node(id=node2)
     edge = Edge(source=nodeA.id, target=nodeB.id, title=link)  # linkValue=link
+    self.add_triple_base(nodeA, edge, nodeB)
+  
+  def add_triple_base(self, nodeA: Node, edge: Edge, nodeB: Node):
     triple = Triple(nodeA, edge, nodeB)
     self.nodes_set.update([nodeA, nodeB])
     self.edges_set.add(edge)
