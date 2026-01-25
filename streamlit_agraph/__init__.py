@@ -26,7 +26,7 @@ else:
         url="http://localhost:3001",
     )
       
-def agraph(nodes, edges, config):
+def agraph(nodes, edges, config, key=None):
     node_ids = [node.id for node in nodes]
     if len(node_ids) > len(set(node_ids)):
         st.warning("Duplicated node IDs exist.")
@@ -35,7 +35,7 @@ def agraph(nodes, edges, config):
     config_json = json.dumps(config.__dict__)
     data = { "nodes": nodes_data, "edges": edges_data}
     data_json = json.dumps(data)
-    component_value = _agraph(data=data_json, config=config_json)
+    component_value = _agraph(data=data_json, config=config_json, key=key)
     return component_value
 
 
